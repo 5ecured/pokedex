@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { AppBar, Toolbar, Grid, Card, CardMedia, CardContent, CircularProgress, Typography, TextField } from '@material-ui/core'
+import { AppBar, Toolbar, Grid, Card, CardMedia, CardContent, CircularProgress, Typography, TextField, CardActionArea } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import { makeStyles, fade } from '@material-ui/core/styles'
 import mockData from '../mockData'
@@ -69,14 +69,16 @@ const Pokedex = ({ history }) => {
         return (
             <Grid item xs={12} sm={4} key={pokeId}>
                 <Card onClick={() => history.push(`/${pokeId}`)}>
-                    <CardMedia
-                        className={classes.cardMedia}
-                        image={sprite}
-                        style={{ width: '130px', height: '130px' }}
-                    />
-                    <CardContent className={classes.cardContent}>
-                        <Typography>{`${id}. ${toFirstCharUppercase(name)}`}</Typography>
-                    </CardContent>
+                    <CardActionArea>
+                        <CardMedia
+                            className={classes.cardMedia}
+                            image={sprite}
+                            style={{ width: '130px', height: '130px' }}
+                        />
+                        <CardContent className={classes.cardContent}>
+                            <Typography>{`${id}. ${toFirstCharUppercase(name)}`}</Typography>
+                        </CardContent>
+                    </CardActionArea>
                 </Card>
             </Grid>
         )
